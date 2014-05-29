@@ -1,0 +1,46 @@
+body {
+  font-family: sans-serif;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+header {
+  height: 60px;
+  background-color: gray;
+}
+
+.header-logo {
+  background-image: url('../images/wabunga-blue.png');
+  height: 60px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 160px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+  background-color: gray;
+  padding-top: 10px;
+}
+
+.source-tag {
+  color: white;
+  text-align: center;
+}
+
+.source-tag a {
+  /*text-decoration: none;*/
+  color: white;
+}
