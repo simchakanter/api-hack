@@ -15,6 +15,19 @@ header {
   background-color: gray;
 }
 
+.nav-container {
+  width: 500px;
+  height: 60px;
+  margin: 0 auto;
+}
+
+.header-nav li {
+  list-style: none;
+  display: inline-block;
+}
+
+
+
 .header-logo {
   background-image: url('../images/wabunga-blue.png');
   height: 60px;
@@ -24,6 +37,11 @@ header {
   background-size: 160px;
   text-align: center;
   margin: 0 auto;
+}
+
+#splash h2{
+  text-align: center;
+  margin-top: 30px;
 }
 
 footer {

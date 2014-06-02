@@ -1,8 +1,19 @@
+var startupIterator = 0;
+
 $(document).ready(function() {
+  console.log("Startup iterator is " + startupIterator);
   $('.angel-category').click(function(){
     getStartups($(this).data("tag-id"));
     console.log($(this).data("tag-id"));
     $('#splash').hide();
+  });
+  $(".prev").click(function() {
+    startupIterator--;
+    console.log("Startup iterator is " + startupIterator);
+  });
+  $('.next').click(function() {
+    startupIterator++;
+    console.log("Startup iterator is " + startupIterator);
   });
 });
 
@@ -19,7 +30,7 @@ function getStartups(tag) {
   .done(function(result) {
     console.log("Data was received");
     console.log(result.startups);
-    console.log(result.startups[4].company_url);
-    $('iframe').attr('src', result.startups[4].company_url);
+    console.log(result.startups[startupIterator].company_url);
+    $('iframe').attr('src', result.startups[startupIterator].company_url);
   });
 }
