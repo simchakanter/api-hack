@@ -1,9 +1,10 @@
-var startupIterator = 0;
+var startupIterator = 1;
+var startupResults;
 
 $(document).ready(function() {
   console.log("Startup iterator is " + startupIterator);
   $('.angel-category').click(function(){
-    getStartups($(this).data("tag-id"));
+    startupResults = getStartups($(this).data("tag-id"));
     console.log($(this).data("tag-id"));
     $('#splash').hide();
   });
@@ -13,7 +14,13 @@ $(document).ready(function() {
   });
   $('.next').click(function() {
     startupIterator++;
+    while (startupResults.startups[startupIterator].company_url === undefined && startupIterator < startupResults.startups.length) {
+      console.log("No website available, advancing...");
+      startupIterator++;
+    }
     console.log("Startup iterator is " + startupIterator);
+    console.log("Display " + startupResults.startups[startupIterator].company_url);
+    $('iframe').attr('src', startupResults.startups[startupIterator].company_url);
   });
 });
 
@@ -31,6 +38,7 @@ function getStartups(tag) {
     console.log("Data was received");
     console.log(result.startups);
     console.log(result.startups[startupIterator].company_url);
+    startupResults = result;
     $('iframe').attr('src', result.startups[startupIterator].company_url);
   });
 }

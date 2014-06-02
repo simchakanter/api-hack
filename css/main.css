@@ -1,4 +1,5 @@
 body {
+  height: 100%;
   font-family: sans-serif;
 }
 
@@ -21,9 +22,17 @@ header {
   margin: 0 auto;
 }
 
+.nav-container ul {
+  height: 60px;
+}
+
 .header-nav li {
   list-style: none;
   display: inline-block;
+}
+
+.header-nav li button {
+  margin-top: 0;
 }
 
 
@@ -42,6 +51,11 @@ header {
 #splash h2{
   text-align: center;
   margin-top: 30px;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
 }
 
 footer {
