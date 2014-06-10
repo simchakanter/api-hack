@@ -1,28 +1,34 @@
-var startupIterator = 1;
+var startupIterator = 0;
 var startupResults;
 
 $(document).ready(function() {
   console.log("Startup iterator is " + startupIterator);
   $('.angel-category').click(function(){
-    startupResults = getStartups($(this).data("tag-id"));
+    $('.loader').show();
+    getStartups($(this).data("tag-id"));
     console.log($(this).data("tag-id"));
     $('#splash').hide();
   });
   $(".prev").click(function() {
     startupIterator--;
     console.log("Startup iterator is " + startupIterator);
+    if (startupIterator >= 0) {
+      loadIframe(startupIterator);
+    }
   });
   $('.next').click(function() {
     startupIterator++;
-    while (startupResults.startups[startupIterator].company_url === undefined && startupIterator < startupResults.startups.length) {
-      console.log("No website available, advancing...");
-      startupIterator++;
-    }
     console.log("Startup iterator is " + startupIterator);
-    console.log("Display " + startupResults.startups[startupIterator].company_url);
-    $('iframe').attr('src', startupResults.startups[startupIterator].company_url);
+    console.log("Display " + startupResults[startupIterator].company_url);
+    if (startupIterator < startupResults.length) {
+      loadIframe(startupIterator);
+    }
   });
 });
+
+function loadIframe(iterator) {
+  $('iframe').attr('src', startupResults[iterator].company_url);
+}
 
 function getStartups(tag) {
   var request = {
@@ -38,7 +44,10 @@ function getStartups(tag) {
     console.log("Data was received");
     console.log(result.startups);
     console.log(result.startups[startupIterator].company_url);
-    startupResults = result;
-    $('iframe').attr('src', result.startups[startupIterator].company_url);
+    startupResults = _.filter(result.startups, function(startup) {
+      return startup.company_url !== undefined;
+    });
+    $(".loader").hide();
+    loadIframe(startupIterator);
   });
 }
