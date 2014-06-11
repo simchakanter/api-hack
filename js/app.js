@@ -8,6 +8,9 @@ $(document).ready(function() {
     getStartups($(this).data("tag-id"));
     console.log($(this).data("tag-id"));
     $('#splash').hide();
+    $('.control').show();
+    $('.header-logo').css('margin-left', '0');
+    $('.category-name').text($(this).text());
   });
   $(".prev").click(function() {
     startupIterator--;

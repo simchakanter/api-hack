@@ -16,6 +16,23 @@ header {
   background-color: gray;
 }
 
+.home {
+  text-indent: -9999px;
+  background-image: url('../images/home_w.png');
+  background-repeat: no-repeat;
+  background-size: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+.now-viewing {
+  color: #fff;
+}
+
+.control {
+  display: none;
+}
+
 .nav-container {
   width: 500px;
   height: 60px;
@@ -35,7 +52,9 @@ header {
   margin-top: -40px;
 }
 
-
+.prev {
+  margin-left: 32px;
+}
 
 .header-logo {
   background-image: url('../images/wabunga-blue.png');
@@ -46,11 +65,26 @@ header {
   background-size: 160px;
   text-align: center;
   margin: 0 auto;
+  margin-left: 100px;
 }
 
 #splash h2{
   text-align: center;
   margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#splash button {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 400px;
+  height: 50px;
+  background-color: rgb(76, 199, 76);
+  border-radius: 5px;
+  font-size: 22px;
+  color: #fff;
 }
 
 .iframe {
